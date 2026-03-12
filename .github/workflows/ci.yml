@@ -4,16 +4,16 @@ on:
     branches:
       - main
 permissions:
-  contents: write # Autorise le robot à créer la branche gh-pages
+  contents: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Nécessaire pour que le plugin multirepo fonctionne bien
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: '3.11' # Version stable
       - run: pip install mkdocs-material mkdocs-multirepo-plugin
       - run: mkdocs gh-deploy --force
