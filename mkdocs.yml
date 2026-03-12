@@ -1,12 +1,22 @@
-﻿site_name: Initkoa Ecosystem Documentation
+﻿site_name: kOA Ecosystem Documentation
 site_url: https://docs.initkoa.org
+
+nav:
+  - Home: index.md
 
 theme:
   name: material
+  logo: assets/images/LogoK.svg
   palette:
     scheme: slate
-    primary: indigo
-    accent: blue
+    primary: custom
+    accent: custom
+
+extra:
+  homepage: https://initkoa.org
+
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
   - search
