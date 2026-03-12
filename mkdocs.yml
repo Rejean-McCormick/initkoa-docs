@@ -1,32 +1,17 @@
-﻿site_name: Initkoa Ecosystem Documentation
-site_url: https://docs.initkoa.org
-theme:
-  name: material
-  palette:
-    scheme: slate
-    primary: indigo
-    accent: blue
-
-plugins:
+﻿plugins:
   - search
   - multirepo:
       cleanup: true
       repos:
         - section: SemantiK Architect
-          import_url: https://github.com/Rejean-McCormick/SemantiK_Architect
-          branch: main
+          import_url: 'https://github.com/Rejean-McCormick/SemantiK_Architect?branch=main'
         - section: Kristal Framework
-          import_url: https://github.com/Rejean-McCormick/kristal-framework
-          branch: main
+          import_url: 'https://github.com/Rejean-McCormick/kristal-framework?branch=main'
         - section: kOA Digital Ecosystem
-          import_url: https://github.com/Rejean-McCormick/kOA_Digital_Ecosystem
-          branch: main
+          import_url: 'https://github.com/Rejean-McCormick/kOA_Digital_Ecosystem?branch=main'
         - section: Konnaxion
-          import_url: https://github.com/Rejean-McCormick/Konnaxion
-          branch: main
+          import_url: 'https://github.com/Rejean-McCormick/Konnaxion?branch=main'
         - section: Orgo
-          import_url: https://github.com/Rejean-McCormick/Orgo
-          branch: master
+          import_url: 'https://github.com/Rejean-McCormick/Orgo?branch=master'
         - section: SenTient
-          import_url: https://github.com/Rejean-McCormick/SenTient
-          branch: main
+          import_url: 'https://github.com/Rejean-McCormick/SenTient?branch=main'
