@@ -3,11 +3,15 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: write # Autorise le robot à créer la branche gh-pages
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Nécessaire pour que le plugin multirepo fonctionne bien
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
