@@ -21,7 +21,6 @@ plugins:
         - section: Konnaxion
           import_url: https://github.com/Rejean-McCormick/Konnaxion?branch=main
         - section: Orgo
-          # Orgo semble utiliser 'master' selon vos logs précédents, on le précise
           import_url: https://github.com/Rejean-McCormick/Orgo?branch=master
         - section: SenTient
           import_url: https://github.com/Rejean-McCormick/SenTient?branch=main
