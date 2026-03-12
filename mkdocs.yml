@@ -1,4 +1,14 @@
-﻿plugins:
+﻿site_name: Initkoa Ecosystem Documentation
+site_url: https://docs.initkoa.org
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: blue
+
+plugins:
   - search
   - multirepo:
       cleanup: true
