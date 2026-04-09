@@ -2,11 +2,11 @@
 
 Welcome to the central documentation portal for the Initkoa ecosystem.
 
-This site brings together the documentation for the main Initkoa projects in one place, so you can browse architecture, frameworks, products, and supporting systems from a single entry point.
+This site brings together documentation for the main Initkoa projects in one place, so you can browse architecture, frameworks, products, and supporting systems from a single entry point.
 
 ## Overview
 
-The portal currently aggregates documentation from these repositories:
+The portal currently aggregates documentation from these projects:
 
 - **SemantiK Architect**
 - **Kristal Framework**
@@ -21,7 +21,7 @@ This documentation hub is designed to help readers:
 
 - understand how the ecosystem is structured
 - find project-specific documentation quickly
-- navigate shared concepts across repositories
+- navigate shared concepts across projects
 - access technical, functional, and strategic documentation in one place
 
 ## How to use this site
@@ -46,17 +46,19 @@ Documentation for the framework, implementation patterns, and technical foundati
 Documentation for the wider ecosystem and platform-level integration.
 
 ### Konnaxion
-Documentation related to connection, orchestration, or interaction layers.
+Documentation related to connection, orchestration, and interaction layers.
 
 ### Orgo
-Documentation for organizational or operational structures.
+Documentation for organizational and operational structures.
 
 ### SenTient
-Documentation for intelligence, behavior, or decision-support components.
+Documentation for intelligence, behavior, and decision-support components.
 
 ## Notes
 
-This portal is automatically built from multiple repositories using MkDocs and GitHub Pages.
+This portal is automatically built with MkDocs and GitHub Pages.
+
+Project documentation is synchronized from the original project wiki sources at build time and published here under a unified documentation portal.
 
 ---
 

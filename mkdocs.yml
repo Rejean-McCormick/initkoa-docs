@@ -1,8 +1,108 @@
 ﻿site_name: kOA Ecosystem Documentation
 site_url: https://docs.initkoa.org
-
+docs_dir: docs
 nav:
-  - Home: index.md
+  - 'Home': 'index.md'
+  - 'SemantiK Architect':
+      - 'Home': 'SemantiK Architect/index.md'
+      - 'API Overview': 'SemantiK Architect/API-Overview.md'
+      - 'Add a Language High Level': 'SemantiK Architect/Add-a-Language-High-Level.md'
+      - 'Changelog': 'SemantiK Architect/Changelog.md'
+      - 'Conceptual Flow Meaning to Text': 'SemantiK Architect/Conceptual-Flow-Meaning-to-Text.md'
+      - 'Context': 'SemantiK Architect/Context.md'
+      - 'Correctness and Verifiability Gold Standards UD Export Judge': 'SemantiK Architect/Correctness-and-Verifiability-Gold-Standards-UD-Export-Judge.md'
+      - 'Decisions': 'SemantiK Architect/Decisions.md'
+      - 'Glossary': 'SemantiK Architect/Glossary.md'
+      - 'Grammar': 'SemantiK Architect/Grammar.md'
+      - 'Improve a Language High Level': 'SemantiK Architect/Improve-a-Language-High-Level.md'
+      - 'Inputs Frames': 'SemantiK Architect/Inputs-Frames.md'
+      - 'Inputs Ninai': 'SemantiK Architect/Inputs-Ninai.md'
+      - 'Language Coverage Strategy Tiers': 'SemantiK Architect/Language-Coverage-Strategy-Tiers.md'
+      - 'Lexicon': 'SemantiK Architect/Lexicon.md'
+      - 'Outputs Text': 'SemantiK Architect/Outputs-Text.md'
+      - 'Outputs UD': 'SemantiK Architect/Outputs-UD.md'
+      - 'Positioning Ninai Udiron GF UD No WMF AW Affiliation': 'SemantiK Architect/Positioning-Ninai-Udiron-GF-UD-No-WMF-AW-Affiliation.md'
+      - 'Renderer': 'SemantiK Architect/Renderer.md'
+      - 'Repo Map': 'SemantiK Architect/Repo-Map.md'
+      - 'Roadmap': 'SemantiK Architect/Roadmap.md'
+      - 'Setup': 'SemantiK Architect/Setup.md'
+      - 'What SemantiK Architect Is': 'SemantiK Architect/What-SemantiK-Architect-Is.md'
+  - 'Kristal Framework':
+      - 'Home': 'Kristal Framework/index.md'
+      - 'Artifact Authority Registry': 'Kristal Framework/Artifact-Authority-Registry.md'
+      - 'Artifact Exchange': 'Kristal Framework/Artifact-Exchange.md'
+      - 'Artifact Federation Manifest': 'Kristal Framework/Artifact-Federation-Manifest.md'
+      - 'Artifact Runtime Pack': 'Kristal Framework/Artifact-Runtime-Pack.md'
+      - 'Artifact Shard Manifest': 'Kristal Framework/Artifact-Shard-Manifest.md'
+      - 'Artifact Validation Report': 'Kristal Framework/Artifact-Validation-Report.md'
+      - 'Artifacts': 'Kristal Framework/Artifacts.md'
+      - 'Concepts and Mental Model': 'Kristal Framework/Concepts-and-Mental-Model.md'
+      - 'FAQ': 'Kristal Framework/FAQ.md'
+      - 'Getting Started': 'Kristal Framework/Getting-Started.md'
+      - 'Glossary': 'Kristal Framework/Glossary.md'
+      - 'Identity and Determinism': 'Kristal Framework/Identity-and-Determinism.md'
+      - 'Operations Compatibility': 'Kristal Framework/Operations-Compatibility.md'
+      - 'Operations Observability and Troubleshooting': 'Kristal Framework/Operations-Observability-and-Troubleshooting.md'
+      - 'Operations Release Strategy': 'Kristal Framework/Operations-Release-Strategy.md'
+      - 'Operations': 'Kristal Framework/Operations.md'
+      - 'Query Basics': 'Kristal Framework/Query-Basics.md'
+      - 'Query Pagination and Capabilities': 'Kristal Framework/Query-Pagination-and-Capabilities.md'
+      - 'Query': 'Kristal Framework/Query.md'
+      - 'Quickstart': 'Kristal Framework/Quickstart.md'
+      - 'Trust Authority and Signatures': 'Kristal Framework/Trust-Authority-and-Signatures.md'
+      - 'What is Kristal': 'Kristal Framework/What-is-Kristal.md'
+      - 'Workflow Activate Rollback Downgrade': 'Kristal Framework/Workflow-Activate-Rollback-Downgrade.md'
+      - 'Workflow Build and Validate': 'Kristal Framework/Workflow-Build-and-Validate.md'
+      - 'Workflow Federation and Curation': 'Kristal Framework/Workflow-Federation-and-Curation.md'
+      - 'Workflow Publish and Distribute': 'Kristal Framework/Workflow-Publish-and-Distribute.md'
+      - 'Workflow Subsets Recipes': 'Kristal Framework/Workflow-Subsets-Recipes.md'
+      - 'Workflows': 'Kristal Framework/Workflows.md'
+  - 'kOA Digital Ecosystem':
+      - 'Home': 'kOA Digital Ecosystem/index.md'
+      - 'Artifacts Kristal': 'kOA Digital Ecosystem/Artifacts-Kristal.md'
+      - 'Artifacts Operational': 'kOA Digital Ecosystem/Artifacts-Operational.md'
+      - 'Artifacts': 'kOA Digital Ecosystem/Artifacts.md'
+      - 'Components Architect': 'kOA Digital Ecosystem/Components-Architect.md'
+      - 'Components Binah': 'kOA Digital Ecosystem/Components-Binah.md'
+      - 'Components Chokmah': 'kOA Digital Ecosystem/Components-Chokmah.md'
+      - 'Components Konnaxion and Malkuth': 'kOA Digital Ecosystem/Components-Konnaxion-and-Malkuth.md'
+      - 'Components Kristal and Daat': 'kOA Digital Ecosystem/Components-Kristal-and-Daat.md'
+      - 'Components Orgo': 'kOA Digital Ecosystem/Components-Orgo.md'
+      - 'Components SenTient': 'kOA Digital Ecosystem/Components-SenTient.md'
+      - 'Components SwarmCraft': 'kOA Digital Ecosystem/Components-SwarmCraft.md'
+      - 'Components': 'kOA Digital Ecosystem/Components.md'
+      - 'FAQ': 'kOA Digital Ecosystem/FAQ.md'
+      - 'Glossary': 'kOA Digital Ecosystem/Glossary.md'
+      - 'Integration External systems': 'kOA Digital Ecosystem/Integration-External-systems.md'
+      - 'Integration Kristal v4': 'kOA Digital Ecosystem/Integration-Kristal-v4.md'
+      - 'Integration': 'kOA Digital Ecosystem/Integration.md'
+      - 'Lifecycle': 'kOA Digital Ecosystem/Lifecycle.md'
+      - 'Non goals': 'kOA Digital Ecosystem/Non-goals.md'
+      - 'Operations Builds': 'kOA Digital Ecosystem/Operations-Builds.md'
+      - 'Operations Incident response': 'kOA Digital Ecosystem/Operations-Incident-response.md'
+      - 'Operations Observability': 'kOA Digital Ecosystem/Operations-Observability.md'
+      - 'Operations Releases': 'kOA Digital Ecosystem/Operations-Releases.md'
+      - 'Operations Rollbacks': 'kOA Digital Ecosystem/Operations-Rollbacks.md'
+      - 'Operations': 'kOA Digital Ecosystem/Operations.md'
+      - 'Principles and invariants': 'kOA Digital Ecosystem/Principles-and-invariants.md'
+  - 'Konnaxion':
+      - 'Home': 'Konnaxion/index.md'
+      - 'CertifiKation': 'Konnaxion/CertifiKation.md'
+      - 'EkoH': 'Konnaxion/EkoH.md'
+      - 'Knowledge': 'Konnaxion/Knowledge.md'
+      - 'Konnaxion – Technical Architecture & Services': 'Konnaxion/Konnaxion-–-Technical-Architecture-&-Services.md'
+      - 'Konservation': 'Konnaxion/Konservation.md'
+      - 'Konstruct': 'Konnaxion/Konstruct.md'
+      - 'Konsultations': 'Konnaxion/Konsultations.md'
+      - 'Kontact': 'Konnaxion/Kontact.md'
+      - 'Korum': 'Konnaxion/Korum.md'
+      - 'Smart Vote': 'Konnaxion/Smart-Vote.md'
+      - 'Stockage': 'Konnaxion/Stockage.md'
+  - 'Orgo':
+      - 'Home': 'Orgo/index.md'
+  - 'SenTient':
+      - 'Home': 'SenTient/index.md'
+
 
 theme:
   name: material
@@ -18,20 +118,10 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
+exclude_docs: |
+  **/_Footer.md
+  **/_Header.md
+  **/_Sidebar.md
+
 plugins:
   - search
-  - multirepo:
-      cleanup: true
-      repos:
-        - section: SemantiK Architect
-          import_url: 'https://github.com/Rejean-McCormick/SemantiK_Architect?branch=main'
-        - section: Kristal Framework
-          import_url: 'https://github.com/Rejean-McCormick/kristal-framework?branch=main'
-        - section: kOA Digital Ecosystem
-          import_url: 'https://github.com/Rejean-McCormick/kOA_Digital_Ecosystem?branch=main'
-        - section: Konnaxion
-          import_url: 'https://github.com/Rejean-McCormick/Konnaxion?branch=main'
-        - section: Orgo
-          import_url: 'https://github.com/Rejean-McCormick/Orgo?branch=master'
-        - section: SenTient
-          import_url: 'https://github.com/Rejean-McCormick/SenTient?branch=main'
