@@ -111,6 +111,11 @@ theme:
     scheme: slate
     primary: custom
     accent: custom
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.follow
 
 extra:
   homepage: https://initkoa.org

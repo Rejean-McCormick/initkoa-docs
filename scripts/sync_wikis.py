@@ -119,10 +119,21 @@ def normalize_page_key(value: str) -> str:
     value = value.replace("\\", "/")
     if value.lower().endswith(".md"):
         value = value[:-3]
+
+    value = value.replace("&", " and ")
+    value = value.replace("–", " ")
+    value = value.replace("—", " ")
     value = value.replace("-", " ")
     value = value.replace("_", " ")
+    value = re.sub(r"[^\w\s/]", " ", value, flags=re.UNICODE)
     value = re.sub(r"\s+", " ", value)
     return value.strip().lower()
+
+
+def prettify_title(value: str) -> str:
+    value = value.replace("-", " ").replace("_", " ").strip()
+    value = re.sub(r"\s+", " ", value)
+    return value
 
 
 def build_page_lookup(project_dir: Path, project_title: str) -> dict[str, Path]:
@@ -254,22 +265,68 @@ def rewrite_links_in_project(project_dir: Path, project_title: str) -> None:
             md_file.write_text(updated, encoding="utf-8")
 
 
-def parse_sidebar_link(text: str) -> tuple[str, str | None]:
+def strip_wrapping_markdown(text: str) -> str:
     text = text.strip()
 
+    patterns = [
+        r"^\*\*(.+)\*\*$",
+        r"^__(.+)__$",
+        r"^\*(.+)\*$",
+        r"^_(.+)_$",
+        r"^`(.+)`$",
+    ]
+
+    changed = True
+    while changed:
+        changed = False
+        for pattern in patterns:
+            match = re.fullmatch(pattern, text)
+            if match:
+                text = match.group(1).strip()
+                changed = True
+
+    return text.strip()
+
+
+def extract_single_link(text: str) -> tuple[str, str] | None:
     wiki_match = re.fullmatch(r"\[\[([^\]]+)\]\]", text)
     if wiki_match:
         inner = wiki_match.group(1).strip()
         if "|" in inner:
             left, right = [part.strip() for part in inner.split("|", 1)]
-            return right or left, left or right
+            return (right or left), (left or right)
         return inner, inner
 
     md_match = re.fullmatch(r"\[([^\]]+)\]\(([^)]+)\)", text)
     if md_match:
         return md_match.group(1).strip(), md_match.group(2).strip()
 
-    return re.sub(r"[*_`]+", "", text).strip(), None
+    return None
+
+
+def parse_sidebar_item(text: str) -> tuple[str, str | None, bool]:
+    text = text.strip()
+    link = extract_single_link(text)
+    if link:
+        title, target = link
+        return title, target, True
+
+    clean = strip_wrapping_markdown(text).rstrip(":").strip()
+    return clean, None, False
+
+
+def is_separator_line(text: str) -> bool:
+    return bool(re.fullmatch(r"[-*_]{3,}", text.strip()))
+
+
+def is_plain_heading_candidate(text: str) -> bool:
+    if not text:
+        return False
+    if extract_single_link(text):
+        return False
+    if text.startswith(">"):
+        return False
+    return True
 
 
 def parse_sidebar(project_dir: Path) -> list[dict[str, Any]]:
@@ -278,27 +335,113 @@ def parse_sidebar(project_dir: Path) -> list[dict[str, Any]]:
         return []
 
     items: list[dict[str, Any]] = []
-    stack: list[tuple[int, list[dict[str, Any]]]] = [(-1, items)]
+    heading_stack: list[tuple[int, list[dict[str, Any]]]] = [(0, items)]
+    list_stack: list[tuple[int, list[dict[str, Any]]]] = []
+    current_inline_section_children: list[dict[str, Any]] | None = None
+
+    def current_base_children() -> list[dict[str, Any]]:
+        return current_inline_section_children if current_inline_section_children is not None else heading_stack[-1][1]
 
     for raw_line in sidebar.read_text(encoding="utf-8").splitlines():
         line = raw_line.rstrip()
-        if not line.strip():
+        stripped = line.strip()
+
+        if not stripped:
+            list_stack = []
+            current_inline_section_children = None
+            continue
+
+        if is_separator_line(stripped):
+            list_stack = []
+            current_inline_section_children = None
+            continue
+
+        heading_match = re.match(r"^(#{1,6})\s+(.*)$", stripped)
+        if heading_match:
+            level = len(heading_match.group(1))
+            title, target, is_link = parse_sidebar_item(heading_match.group(2))
+            if not title:
+                list_stack = []
+                current_inline_section_children = None
+                continue
+
+            node = {
+                "title": title,
+                "target": target if is_link else None,
+                "children": [],
+            }
+
+            while len(heading_stack) > 1 and level <= heading_stack[-1][0]:
+                heading_stack.pop()
+
+            heading_stack[-1][1].append(node)
+            heading_stack.append((level, node["children"]))
+            list_stack = []
+            current_inline_section_children = None
             continue
 
         bullet_match = re.match(r"^([ \t]*)[-*+]\s+(.*)$", line)
-        if not bullet_match:
+        if bullet_match:
+            indent_text, content = bullet_match.groups()
+            indent = len(indent_text.replace("\t", "    "))
+
+            title, target, is_link = parse_sidebar_item(content)
+            if not title:
+                continue
+
+            while list_stack and indent <= list_stack[-1][0]:
+                list_stack.pop()
+
+            parent_children = list_stack[-1][1] if list_stack else current_base_children()
+
+            node = {
+                "title": title,
+                "target": target if is_link else None,
+                "children": [],
+            }
+            parent_children.append(node)
+            list_stack.append((indent, node["children"]))
             continue
 
-        indent_text, content = bullet_match.groups()
-        indent = len(indent_text.replace("\t", "    "))
-        title, target = parse_sidebar_link(content)
-        node = {"title": title, "target": target, "children": []}
+        numbered_match = re.match(r"^([ \t]*)\d+[.)]\s+(.*)$", line)
+        if numbered_match:
+            indent_text, content = numbered_match.groups()
+            indent = len(indent_text.replace("\t", "    "))
 
-        while len(stack) > 1 and indent <= stack[-1][0]:
-            stack.pop()
+            title, target, is_link = parse_sidebar_item(content)
+            if not title:
+                continue
 
-        stack[-1][1].append(node)
-        stack.append((indent, node["children"]))
+            while list_stack and indent <= list_stack[-1][0]:
+                list_stack.pop()
+
+            parent_children = list_stack[-1][1] if list_stack else current_base_children()
+
+            node = {
+                "title": title,
+                "target": target if is_link else None,
+                "children": [],
+            }
+            parent_children.append(node)
+            list_stack.append((indent, node["children"]))
+            continue
+
+        title, target, is_link = parse_sidebar_item(stripped)
+        if not title:
+            continue
+
+        if is_link:
+            current_base_children().append(
+                {"title": title, "target": target, "children": []}
+            )
+        elif is_plain_heading_candidate(title):
+            node = {"title": title, "target": None, "children": []}
+            heading_stack[-1][1].append(node)
+            current_inline_section_children = node["children"]
+        else:
+            current_inline_section_children = None
+
+        list_stack = []
 
     return items
 
@@ -371,9 +514,40 @@ def fallback_project_nav(project_dir: Path, docs_prefix: str) -> list[dict[str, 
 
     nodes: list[dict[str, Any]] = []
     for rel in pages:
-        title = Path(rel).stem.replace("-", " ").replace("_", " ")
+        title = prettify_title(Path(rel).stem)
         nodes.append(nav_page(title, f"{docs_prefix}/{rel}"))
     return nodes
+
+
+def collect_nav_paths(nodes: list[dict[str, Any]]) -> set[str]:
+    paths: set[str] = set()
+
+    for node in nodes:
+        if node["kind"] == "page":
+            paths.add(node["path"])
+        else:
+            paths.update(collect_nav_paths(node["children"]))
+
+    return paths
+
+
+def collapse_single_overview_section(children: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    collapsed: list[dict[str, Any]] = []
+
+    for child in children:
+        if child["kind"] == "section":
+            title_key = normalize_page_key(child["title"])
+            grand_children = child["children"]
+
+            if title_key in {normalize_page_key("Overview"), normalize_page_key("Home")} and grand_children:
+                collapsed.extend(collapse_single_overview_section(grand_children))
+                continue
+
+            child["children"] = collapse_single_overview_section(grand_children)
+
+        collapsed.append(child)
+
+    return collapsed
 
 
 def filter_duplicate_home(children: list[dict[str, Any]], home_path: str | None, project_title: str) -> list[dict[str, Any]]:
@@ -400,6 +574,7 @@ def build_project_nav(project_title: str, project_dir: Path) -> dict[str, Any]:
     lookup = build_page_lookup(project_dir, project_title)
     sidebar_nodes = parse_sidebar(project_dir)
     children = sidebar_nodes_to_nav(sidebar_nodes, project_dir, docs_prefix, lookup)
+    children = collapse_single_overview_section(children)
 
     home_rel = first_content_page(project_dir)
     home_path = f"{docs_prefix}/{home_rel.as_posix()}" if home_rel else None
@@ -411,6 +586,15 @@ def build_project_nav(project_title: str, project_dir: Path) -> dict[str, Any]:
 
     if children:
         final_children.extend(children)
+
+        referenced = collect_nav_paths(final_children)
+        extras = [
+            node
+            for node in fallback_project_nav(project_dir, docs_prefix)
+            if node["path"] not in referenced
+        ]
+        if extras:
+            final_children.append(nav_section("Other pages", extras))
     else:
         final_children.extend(fallback_project_nav(project_dir, docs_prefix))
 
