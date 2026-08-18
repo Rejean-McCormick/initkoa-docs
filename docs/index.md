@@ -1,4 +1,9 @@
-﻿# Initkoa Ecosystem Documentation
+﻿---
+hide:
+  - toc
+---
+
+# Initkoa Ecosystem Documentation
 
 Welcome to the central documentation portal for the Initkoa ecosystem.
 

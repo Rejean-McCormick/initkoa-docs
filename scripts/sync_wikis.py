@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import os
 import re
 import shutil
@@ -136,6 +137,12 @@ def prettify_title(value: str) -> str:
     return value
 
 
+def one_line(value: str) -> str:
+    value = value.replace("\r", " ").replace("\n", " ")
+    value = re.sub(r"\s+", " ", value)
+    return value.strip()
+
+
 def build_page_lookup(project_dir: Path, project_title: str) -> dict[str, Path]:
     lookup: dict[str, Path] = {}
 
@@ -229,7 +236,7 @@ def rewrite_wiki_links(text: str, current_file: Path, project_dir: Path, lookup:
         if not resolved:
             return match.group(0)
 
-        return f"[{label}]({resolved})"
+        return f"[{one_line(label)}]({resolved})"
 
     return wiki_link_pattern.sub(wiki_link_replacer, text)
 
@@ -245,7 +252,7 @@ def rewrite_markdown_links(text: str, current_file: Path, project_dir: Path, loo
         if not resolved:
             return match.group(0)
 
-        return f"[{label}]({resolved})"
+        return f"[{one_line(label)}]({resolved})"
 
     return markdown_link_pattern.sub(markdown_link_replacer, text)
 
@@ -309,10 +316,10 @@ def parse_sidebar_item(text: str) -> tuple[str, str | None, bool]:
     link = extract_single_link(text)
     if link:
         title, target = link
-        return title, target, True
+        return one_line(title), target, True
 
     clean = strip_wrapping_markdown(text).rstrip(":").strip()
-    return clean, None, False
+    return one_line(clean), None, False
 
 
 def is_separator_line(text: str) -> bool:
@@ -381,31 +388,10 @@ def parse_sidebar(project_dir: Path) -> list[dict[str, Any]]:
             continue
 
         bullet_match = re.match(r"^([ \t]*)[-*+]\s+(.*)$", line)
-        if bullet_match:
-            indent_text, content = bullet_match.groups()
-            indent = len(indent_text.replace("\t", "    "))
-
-            title, target, is_link = parse_sidebar_item(content)
-            if not title:
-                continue
-
-            while list_stack and indent <= list_stack[-1][0]:
-                list_stack.pop()
-
-            parent_children = list_stack[-1][1] if list_stack else current_base_children()
-
-            node = {
-                "title": title,
-                "target": target if is_link else None,
-                "children": [],
-            }
-            parent_children.append(node)
-            list_stack.append((indent, node["children"]))
-            continue
-
         numbered_match = re.match(r"^([ \t]*)\d+[.)]\s+(.*)$", line)
-        if numbered_match:
-            indent_text, content = numbered_match.groups()
+        list_match = bullet_match or numbered_match
+        if list_match:
+            indent_text, content = list_match.groups()
             indent = len(indent_text.replace("\t", "    "))
 
             title, target, is_link = parse_sidebar_item(content)
@@ -431,9 +417,7 @@ def parse_sidebar(project_dir: Path) -> list[dict[str, Any]]:
             continue
 
         if is_link:
-            current_base_children().append(
-                {"title": title, "target": target, "children": []}
-            )
+            current_base_children().append({"title": title, "target": target, "children": []})
         elif is_plain_heading_candidate(title):
             node = {"title": title, "target": None, "children": []}
             heading_stack[-1][1].append(node)
@@ -460,11 +444,11 @@ def first_content_page(project_dir: Path) -> Path | None:
 
 
 def nav_page(title: str, path: str) -> dict[str, Any]:
-    return {"kind": "page", "title": title, "path": path}
+    return {"kind": "page", "title": one_line(title), "path": path}
 
 
 def nav_section(title: str, children: list[dict[str, Any]]) -> dict[str, Any]:
-    return {"kind": "section", "title": title, "children": children}
+    return {"kind": "section", "title": one_line(title), "children": children}
 
 
 def sidebar_nodes_to_nav(
@@ -477,7 +461,7 @@ def sidebar_nodes_to_nav(
     output: list[dict[str, Any]] = []
 
     for node in sidebar_nodes:
-        title = node["title"].strip()
+        title = one_line(node["title"].strip())
         target = node["target"]
         children = node["children"]
 
@@ -505,18 +489,37 @@ def sidebar_nodes_to_nav(
     return output
 
 
-def fallback_project_nav(project_dir: Path, docs_prefix: str) -> list[dict[str, Any]]:
+def fallback_grouped_project_nav(project_dir: Path, docs_prefix: str) -> list[dict[str, Any]]:
     pages = sorted(
         p.relative_to(project_dir).as_posix()
         for p in project_dir.rglob("*.md")
         if p.name not in SPECIAL_WIKI_FILES and p.name.lower() != "index.md"
     )
 
-    nodes: list[dict[str, Any]] = []
+    buckets: dict[str, list[dict[str, Any]]] = {}
+    singles: list[dict[str, Any]] = []
+
     for rel in pages:
-        title = prettify_title(Path(rel).stem)
-        nodes.append(nav_page(title, f"{docs_prefix}/{rel}"))
-    return nodes
+        stem = Path(rel).stem
+        title = prettify_title(stem)
+        parts = re.split(r"[-_]+", stem, maxsplit=1)
+
+        if len(parts) == 2 and len(parts[0]) >= 4:
+            bucket = prettify_title(parts[0])
+            buckets.setdefault(bucket, []).append(nav_page(title, f"{docs_prefix}/{rel}"))
+        else:
+            singles.append(nav_page(title, f"{docs_prefix}/{rel}"))
+
+    output: list[dict[str, Any]] = []
+
+    for bucket, items in sorted(buckets.items(), key=lambda kv: kv[0].lower()):
+        if len(items) >= 2:
+            output.append(nav_section(bucket, items))
+        else:
+            output.extend(items)
+
+    output.extend(sorted(singles, key=lambda x: x["title"].lower()))
+    return output
 
 
 def collect_nav_paths(nodes: list[dict[str, Any]]) -> set[str]:
@@ -590,19 +593,19 @@ def build_project_nav(project_title: str, project_dir: Path) -> dict[str, Any]:
         referenced = collect_nav_paths(final_children)
         extras = [
             node
-            for node in fallback_project_nav(project_dir, docs_prefix)
+            for node in fallback_grouped_project_nav(project_dir, docs_prefix)
             if node["path"] not in referenced
         ]
         if extras:
             final_children.append(nav_section("Other pages", extras))
     else:
-        final_children.extend(fallback_project_nav(project_dir, docs_prefix))
+        final_children.extend(fallback_grouped_project_nav(project_dir, docs_prefix))
 
     return nav_section(project_title, final_children)
 
 
 def yaml_quote(value: str) -> str:
-    return "'" + value.replace("'", "''") + "'"
+    return json.dumps(one_line(str(value)), ensure_ascii=False)
 
 
 def render_nav_nodes(nodes: list[dict[str, Any]], indent: int = 2) -> list[str]:
@@ -620,7 +623,7 @@ def render_nav_nodes(nodes: list[dict[str, Any]], indent: int = 2) -> list[str]:
 
 
 def build_nav_block(project_navs: list[dict[str, Any]]) -> str:
-    lines = ["nav:", "  - 'Home': 'index.md'"]
+    lines = ["nav:", f"  - {yaml_quote('Home')}: {yaml_quote('index.md')}"]
     lines.extend(render_nav_nodes(project_navs, indent=2))
     return "\n".join(lines) + "\n"
 
