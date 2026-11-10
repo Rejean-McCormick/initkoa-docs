@@ -1,4 +1,4 @@
-> **Final-system design mirror** · Canonical source: [`docs/target/functional-chains/README.md`](https://github.com/Rejean-McCormick/kOA-Digital-Ecosystem/blob/main/docs/target/functional-chains/README.md) · SHA-256 `a902cf9754c4991382c5c82fedf7258353483fd7ab3d7ac7a67db7dfb54d7bd7`. Design intent is not deployment proof.
+> **Final-system design mirror** · Canonical source: [`docs/target/functional-chains/README.md`](https://github.com/Rejean-McCormick/kOA-Digital-Ecosystem/blob/main/docs/target/functional-chains/README.md) · SHA-256 `1b4e17731d349b60ff8bdab680328c8175446023ad4a20ae9e4606cf28997635`. Design intent is not deployment proof.
 
 # Final-system functional chains — 24 capabilities
 
@@ -12,8 +12,6 @@
 4. [State, trust and failure](03-state-trust-and-failure.md) — lifecycle and denial.
 5. Each functional chain below, then [cross-chain scenarios](04-cross-chain-compositions.md).
 6. [53-repository coverage](05-repository-coverage.md), [qualification](06-qualification-and-acceptance.md), [code alignment](07-code-alignment-backlog.md), [glossary](08-glossary.md), [deployment profiles](09-reference-deployment-profiles.md), [quality requirements](10-quality-attributes.md) and [boundary traceability](11-boundary-traceability.md).
-
-7. [Dated implementation evidence](12-implementation-evidence-2026-11-09.md) — scope of the nine delivered branches and remaining owner acceptance.
 
 ## Functional chain catalogue
 

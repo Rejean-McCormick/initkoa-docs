@@ -22,7 +22,7 @@
     {
       "source": "docs/target/README.md",
       "destination": "index.md",
-      "sha256": "cec51fd9a3bc13e726bd659792a5cef089c4320dfca44937e33bbb031c7fd4f1"
+      "sha256": "1ed9eeadcf376cf8cd340f05a132f7d00adb589b22d6e07d61249c44f3481a9e"
     },
     {
       "source": "docs/target/SNAPSHOT_RECONCILIATION.md",
@@ -105,14 +105,9 @@
       "sha256": "1904b43ee6eea1e9fa28107cc52a145e49393c40069a86498c8ce8c8df8e2a37"
     },
     {
-      "source": "docs/target/functional-chains/12-implementation-evidence-2026-11-09.md",
-      "destination": "functional-chains/12-implementation-evidence-2026-11-09.md",
-      "sha256": "a5ef76fea49a5df69bae537a485de2a3cf677448256d17580c7354657939a9a2"
-    },
-    {
       "source": "docs/target/functional-chains/README.md",
       "destination": "functional-chains/index.md",
-      "sha256": "a902cf9754c4991382c5c82fedf7258353483fd7ab3d7ac7a67db7dfb54d7bd7"
+      "sha256": "1b4e17731d349b60ff8bdab680328c8175446023ad4a20ae9e4606cf28997635"
     },
     {
       "source": "docs/target/functional-chains/chains/FC-01-research-and-acquisition.md",

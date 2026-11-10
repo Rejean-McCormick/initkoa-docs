@@ -1,4 +1,4 @@
-> **Final-system design mirror** · Canonical source: [`docs/target/README.md`](https://github.com/Rejean-McCormick/kOA-Digital-Ecosystem/blob/main/docs/target/README.md) · SHA-256 `cec51fd9a3bc13e726bd659792a5cef089c4320dfca44937e33bbb031c7fd4f1`. Design intent is not deployment proof.
+> **Final-system design mirror** · Canonical source: [`docs/target/README.md`](https://github.com/Rejean-McCormick/kOA-Digital-Ecosystem/blob/main/docs/target/README.md) · SHA-256 `1ed9eeadcf376cf8cd340f05a132f7d00adb589b22d6e07d61249c44f3481a9e`. Design intent is not deployment proof.
 
 # Final-system architecture — C0 coordination
 
@@ -14,8 +14,6 @@
 6. [Independent qualification](functional-chains/06-qualification-and-acceptance.md), [release/deployment profiles](functional-chains/09-reference-deployment-profiles.md).
 7. [Code-alignment instructions](CODE_ALIGNMENT_INSTRUCTIONS.md) and [functional backlog](functional-chains/07-code-alignment-backlog.md).
 8. [Code snapshot evidence and limitations](SNAPSHOT_RECONCILIATION.md); [adjacent projects](adjacent-projects.md); [actual implementation maturity](https://github.com/Rejean-McCormick/kOA-Digital-Ecosystem/blob/main/docs/status/current.md).
-
-9. [Dated source-delivery evidence across branches](functional-chains/12-implementation-evidence-2026-11-09.md) — nine offline source deliveries, missing branch 05, no production claims.
 
 ## Design rules
 
