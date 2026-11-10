@@ -1,4 +1,4 @@
-﻿name: ci
+name: ci
 
 on:
   push:
@@ -45,6 +45,9 @@ jobs:
 
       - name: Sync project wikis
         run: uv run python scripts/sync_wikis.py
+
+      - name: Validate final-system source mirror
+        run: uv run python scripts/sync_koa_target.py --verify-bundle
 
       - name: Build MkDocs site
         run: uv run mkdocs build --strict

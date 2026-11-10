@@ -1,17 +1,21 @@
-﻿---
+---
 hide:
   - toc
 ---
 
 # Initkoa Ecosystem Documentation
 
-Welcome to the central documentation portal for the Initkoa ecosystem.
+This portal is a **public reading interface**, not a substitute for owner repositories or evidence of deployment. The federated final-system architecture lives in the kOA Digital Ecosystem coordination repository; the pages here are a **source-attributed read-only mirror**.
 
-This site brings together documentation for the main Initkoa projects in one place, so you can browse architecture, frameworks, products, and supporting systems from a single entry point.
+## Final-system documentation
+
+Begin with the [architecture and owner boundaries](final-system/index.md), explore the [24 functional chains](final-system/functional-chains/index.md), inspect the [53-repository role map](final-system/PORTFOLIO.md), and read the [evidence and qualification limits](final-system/SNAPSHOT_RECONCILIATION.md).
+
+The chains are **target designs**. They do not assert that every inter-repository connection is implemented or deployed. Product-specific normative contracts remain in their own repositories.
 
 ## Overview
 
-The portal currently aggregates documentation from these projects:
+The portal provides an offline reproducible mirror of C0 final-system documentation and also aggregates the following project wikis when those external sources are available:
 
 - **SemantiK Architect**
 - **Kristal Framework**
@@ -31,7 +35,7 @@ This documentation hub is designed to help readers:
 
 ## How to use this site
 
-Start from the left navigation menu and select the project you want to explore.
+Start with the final-system architecture and then navigate to a product-specific wiki for the owner implementation or exact contract.
 
 A good reading path is:
 
@@ -63,7 +67,7 @@ Documentation for intelligence, behavior, and decision-support components.
 
 This portal is automatically built with MkDocs and GitHub Pages.
 
-Project documentation is synchronized from the original project wiki sources at build time and published here under a unified documentation portal.
+Existing project wikis are synchronized independently where available. The final-system mirror is generated from a pinned local C0 `docs/target` directory; public deployment of this portal is a separate site-owner decision.
 
 ---
 

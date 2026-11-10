@@ -1,0 +1,13 @@
+> **Final-system design mirror** · Canonical source: [`docs/target/adjacent-projects.md`](https://github.com/Rejean-McCormick/kOA-Digital-Ecosystem/blob/main/docs/target/adjacent-projects.md) · SHA-256 `3f48fde18d4700390c3458cd3f33f94c1582f181e1ba814b1e8797f8d5d6aee4`. Design intent is not deployment proof.
+
+# Adjacent projects and unadmitted dependencies
+
+**Status:** candidate ecosystem dependencies, not automatically registered owner services. The C0 portfolio contains **53 registered repositories**. The supplied documentation archive also includes **22 additional project folders** which may be independent products, research material, documentation references or third-party grammar sources.
+
+These remain subject to owner identity, licensing, source and contract review before joining the authoritative portfolio:
+
+- Language and grammatical resources: `gf-core`, `GF_Observatory`, `GF_RGL_AI_Compendium`, `GF_Wordbench`, `gf-wikidata`, `gf-wikidata-tools`, `GFF_to_Wikidata_importer`, `Grammatical_Framework-Albanian`.
+- Learning/domain dependencies: `uckk-moodle`, `mediatheque-references`, `math`, `Kalendar`, `Kin-City`, `kristal-farms`.
+- Architecture/reference/creative projects: `ars-magna-defluens`, `BoKristal`, `Civilisational_Coherence`, `Freeze-Vote-Rebuild_Operational-Peace-Framework`, `Kamel`, `kOA-D-E-GitHub-Audit`, `Kristal-Kollection`, `LevelUpDiag`.
+
+`Kolor` and `Karacter` are **not** in this adjacent list: both are among the 53 registered owners. Folder discovery alone never proves a tested runtime dependency. See [the functional coverage map](functional-chains/05-repository-coverage.md).

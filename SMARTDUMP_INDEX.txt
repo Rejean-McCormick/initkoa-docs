@@ -1,0 +1,20 @@
+SMART DUMPER INDEX
+==================
+generated_at: 2026-11-09T16:35:16.170028
+source_root: C:\mycode\HomePage\docs-initkoa-org
+mode: snapshot
+zip_file: docs-initkoa-org_Code_snapshot.zip
+embedded_index: SMARTDUMP_INDEX.txt
+file_count: 7
+total_bytes: 26880
+compression: ZIP_DEFLATED level 1
+
+FILES
+-----
+.github/workflows/ci.yml	1317 bytes
+.gitignore	169 bytes
+docs/index.md	1970 bytes
+docs/stylesheets/extra.css	166 bytes
+mkdocs.yml	440 bytes
+requirements.txt	40 bytes
+scripts/sync_wikis.py	22778 bytes

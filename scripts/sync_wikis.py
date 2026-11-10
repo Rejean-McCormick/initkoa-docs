@@ -624,6 +624,16 @@ def render_nav_nodes(nodes: list[dict[str, Any]], indent: int = 2) -> list[str]:
 
 def build_nav_block(project_navs: list[dict[str, Any]]) -> str:
     lines = ["nav:", f"  - {yaml_quote('Home')}: {yaml_quote('index.md')}"]
+    # Source-attributed final design stays navigable if an external wiki is unavailable.
+    final_pages = [
+        nav_page('Architecture and responsibilities', 'final-system/index.md'),
+        nav_page('24 functional chains', 'final-system/functional-chains/index.md'),
+        nav_page('53 repository roles', 'final-system/PORTFOLIO.md'),
+        nav_page('26 target boundaries', 'final-system/BOUNDARIES.md'),
+        nav_page('Qualification and acceptance', 'final-system/functional-chains/06-qualification-and-acceptance.md'),
+        nav_page('Code alignment', 'final-system/CODE_ALIGNMENT_INSTRUCTIONS.md'),
+    ]
+    lines.extend(render_nav_nodes([nav_section('Final system (target design)', final_pages)], indent=2))
     lines.extend(render_nav_nodes(project_navs, indent=2))
     return "\n".join(lines) + "\n"
 

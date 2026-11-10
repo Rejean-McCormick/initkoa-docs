@@ -1,0 +1,253 @@
+{
+  "format": "koa.docs-portal-final-mirror.v1",
+  "status": "DERIVED_TARGET_DESIGN_NOT_DEPLOYMENT",
+  "source_repo": "https://github.com/Rejean-McCormick/kOA-Digital-Ecosystem",
+  "source_ref": "main",
+  "pages": [
+    {
+      "source": "docs/target/BOUNDARIES.md",
+      "destination": "BOUNDARIES.md",
+      "sha256": "7cb5d56bdc076a1bbd2a75ea6dd877c2299809308dc4fcf51c8c3aa464350de0"
+    },
+    {
+      "source": "docs/target/CODE_ALIGNMENT_INSTRUCTIONS.md",
+      "destination": "CODE_ALIGNMENT_INSTRUCTIONS.md",
+      "sha256": "49d2de8d40116aedc70bd7cf05bae654f97d80fc8155def38de9ae978b78693f"
+    },
+    {
+      "source": "docs/target/PORTFOLIO.md",
+      "destination": "PORTFOLIO.md",
+      "sha256": "4cd1cc8b672719d6e5ce3ffd7b56a87b28c2a7539168b726ddad1f3b68d5a01c"
+    },
+    {
+      "source": "docs/target/README.md",
+      "destination": "index.md",
+      "sha256": "cec51fd9a3bc13e726bd659792a5cef089c4320dfca44937e33bbb031c7fd4f1"
+    },
+    {
+      "source": "docs/target/SNAPSHOT_RECONCILIATION.md",
+      "destination": "SNAPSHOT_RECONCILIATION.md",
+      "sha256": "dbbfea6644e202df5249b1e45233e06bbb2d8a833dd743500036f23a90084e12"
+    },
+    {
+      "source": "docs/target/adjacent-projects.md",
+      "destination": "adjacent-projects.md",
+      "sha256": "3f48fde18d4700390c3458cd3f33f94c1582f181e1ba814b1e8797f8d5d6aee4"
+    },
+    {
+      "source": "docs/target/architecture.md",
+      "destination": "architecture.md",
+      "sha256": "6fbeaac5a4d1621aa984115caf8ad8492880f97301aee7a50764d1550a9c6c6f"
+    },
+    {
+      "source": "docs/target/boundaries.v1.json",
+      "destination": "boundaries.v1.json",
+      "sha256": "0caa0f24cf6889135cbfc668dfc1b6edb703c6194ada71163e9887289076c029"
+    },
+    {
+      "source": "docs/target/functional-chains/00-system-model.md",
+      "destination": "functional-chains/00-system-model.md",
+      "sha256": "15ffbb7094a65a21855de8a2229cf333e4acf17b4d69cb6552d0c067736daaf6"
+    },
+    {
+      "source": "docs/target/functional-chains/01-authority-and-ownership.md",
+      "destination": "functional-chains/01-authority-and-ownership.md",
+      "sha256": "a9ed8d509599e70fe04394df4334cb88dcd0b8f5fe5c31d21016e0abfb846b99"
+    },
+    {
+      "source": "docs/target/functional-chains/02-contract-and-receipts.md",
+      "destination": "functional-chains/02-contract-and-receipts.md",
+      "sha256": "cf52c056fdf82477b84cf28c412b4b3d07ede5d591a95631e6a149f43df6f32f"
+    },
+    {
+      "source": "docs/target/functional-chains/03-state-trust-and-failure.md",
+      "destination": "functional-chains/03-state-trust-and-failure.md",
+      "sha256": "f219a16e2b53538fca833ba872ca2852638c4e8771abbea5add76f0630940d1f"
+    },
+    {
+      "source": "docs/target/functional-chains/04-cross-chain-compositions.md",
+      "destination": "functional-chains/04-cross-chain-compositions.md",
+      "sha256": "816a6ba5588a55669e4feaffb500542b02c021ea8cf16182ec0d232a9c8f895d"
+    },
+    {
+      "source": "docs/target/functional-chains/05-repository-coverage.md",
+      "destination": "functional-chains/05-repository-coverage.md",
+      "sha256": "84ad10dc2f334a27be20d674d3ed3fdf64516304a764b6f83cf18aaf55e63015"
+    },
+    {
+      "source": "docs/target/functional-chains/06-qualification-and-acceptance.md",
+      "destination": "functional-chains/06-qualification-and-acceptance.md",
+      "sha256": "a6433d84d401541e1bd891c33078bb51ffbd44bb87e3a39444a46d619b91cee0"
+    },
+    {
+      "source": "docs/target/functional-chains/07-code-alignment-backlog.md",
+      "destination": "functional-chains/07-code-alignment-backlog.md",
+      "sha256": "aeff63a44e2f42beadeae87de2f53fa2bb1a611c96c8a35fe05cdebc732ee401"
+    },
+    {
+      "source": "docs/target/functional-chains/08-glossary.md",
+      "destination": "functional-chains/08-glossary.md",
+      "sha256": "20495088343ebf4063f8159cc8b42d76596b3ec9d3770087001785e12557fd55"
+    },
+    {
+      "source": "docs/target/functional-chains/09-reference-deployment-profiles.md",
+      "destination": "functional-chains/09-reference-deployment-profiles.md",
+      "sha256": "c06d3f7217e4f0e7b0bd97e09731a3f582dfe6336ec8b8bfc1b3f1dd8e461923"
+    },
+    {
+      "source": "docs/target/functional-chains/10-quality-attributes.md",
+      "destination": "functional-chains/10-quality-attributes.md",
+      "sha256": "a0dc14adbfaa6e0fffaf8c7a0c717ac6b117c183858284d4ef06c2fb9bdb9fdc"
+    },
+    {
+      "source": "docs/target/functional-chains/11-boundary-traceability.md",
+      "destination": "functional-chains/11-boundary-traceability.md",
+      "sha256": "1904b43ee6eea1e9fa28107cc52a145e49393c40069a86498c8ce8c8df8e2a37"
+    },
+    {
+      "source": "docs/target/functional-chains/12-implementation-evidence-2026-11-09.md",
+      "destination": "functional-chains/12-implementation-evidence-2026-11-09.md",
+      "sha256": "a5ef76fea49a5df69bae537a485de2a3cf677448256d17580c7354657939a9a2"
+    },
+    {
+      "source": "docs/target/functional-chains/README.md",
+      "destination": "functional-chains/index.md",
+      "sha256": "a902cf9754c4991382c5c82fedf7258353483fd7ab3d7ac7a67db7dfb54d7bd7"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-01-research-and-acquisition.md",
+      "destination": "functional-chains/chains/FC-01-research-and-acquisition.md",
+      "sha256": "517c1ba8b16ed688d7018ddb2848a3a3b2758ce803e015bdc1a78a339b1c0055"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-02-source-custody.md",
+      "destination": "functional-chains/chains/FC-02-source-custody.md",
+      "sha256": "7443af754d4f3b6561733305332cc9512e3d7ca0eb0ad3082581512c678d7578"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-03-mapping-and-lexical-preparation.md",
+      "destination": "functional-chains/chains/FC-03-mapping-and-lexical-preparation.md",
+      "sha256": "0f162c184ca09f35d16fe5b841676c606ac30c96c24968a9085163d5298331d6"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-04-semantic-authoring.md",
+      "destination": "functional-chains/chains/FC-04-semantic-authoring.md",
+      "sha256": "c03d037613ec5d8b19633824efd3a6c95c5372b401d6c79fd364452e221a3f43"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-05-knowledge-release.md",
+      "destination": "functional-chains/chains/FC-05-knowledge-release.md",
+      "sha256": "9454ac742651bd9f6e23cb11faddf7e68c9d91a64c9919dd3be553c8e9b1440d"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-06-knowledge-consumption.md",
+      "destination": "functional-chains/chains/FC-06-knowledge-consumption.md",
+      "sha256": "81dbb29d9e8c7805715aad59483cea5adada457f451b9836daff2cbed0e15159"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-07-civic-deliberation.md",
+      "destination": "functional-chains/chains/FC-07-civic-deliberation.md",
+      "sha256": "a3d736a973538fffa401b11933cd138ddb6bb98195d3cd0f910b4b45290a2673"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-08-governed-execution.md",
+      "destination": "functional-chains/chains/FC-08-governed-execution.md",
+      "sha256": "2255e2de6802e726961e7649446c228d11b9ef9a032a97efbe587a7cd972c2d4"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-09-world-contexts.md",
+      "destination": "functional-chains/chains/FC-09-world-contexts.md",
+      "sha256": "00d598c8eefa552484936c5e2d94a0479d1806b0f61a9a51e74e471ee3a74cf2"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-10-education-design.md",
+      "destination": "functional-chains/chains/FC-10-education-design.md",
+      "sha256": "0b4c183a235e573f494cd6637f74a0529974b051acf383fb3800c7224aeac8ef"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-11-learning-delivery.md",
+      "destination": "functional-chains/chains/FC-11-learning-delivery.md",
+      "sha256": "ef3bbb446e1a0cf461309636951183d802babf55dcd4d8ded34171f83a32028c"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-12-language-runtime.md",
+      "destination": "functional-chains/chains/FC-12-language-runtime.md",
+      "sha256": "359a92cd95496cad1b8bd3a7e90a2a4dd83be9e73da6b38416f9e9be3acc5d2b"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-13-editorial-publishing.md",
+      "destination": "functional-chains/chains/FC-13-editorial-publishing.md",
+      "sha256": "8d901ac5d9cbc2f026b98a3ed1bd9ce992c525ac3b794c8993b43656588961f3"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-14-identity-and-policy.md",
+      "destination": "functional-chains/chains/FC-14-identity-and-policy.md",
+      "sha256": "c28fbd587ba83427b02679d6e6b83084b047e8d89f5261739877746cde7791a2"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-15-agentic-workflows.md",
+      "destination": "functional-chains/chains/FC-15-agentic-workflows.md",
+      "sha256": "3dae56e41c774fbb648ca9b33d971b53fb362b5e5a5e684515a0d2d193dbee55"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-16-platform-lifecycle.md",
+      "destination": "functional-chains/chains/FC-16-platform-lifecycle.md",
+      "sha256": "ecdabb3c69870bec09d523b4924be9c5db45b90fa9d4b08b42d219f5d6b2fda6"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-17-application-composition.md",
+      "destination": "functional-chains/chains/FC-17-application-composition.md",
+      "sha256": "d17e3f229aab87d1a577b99ec56591df74136fc15fd5e4d90c762d0a53f09c70"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-18-diagnostics-and-audit.md",
+      "destination": "functional-chains/chains/FC-18-diagnostics-and-audit.md",
+      "sha256": "2c673410a9d00a748601860cba0b8e5cb1e54c1951ac12ca9d13d23a5a8d4964"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-19-offline-portability.md",
+      "destination": "functional-chains/chains/FC-19-offline-portability.md",
+      "sha256": "01abe547250bc556bfd8b3a8b89ef477ab1278111763b1ae4ce806e12a8c45b8"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-20-medical-domain.md",
+      "destination": "functional-chains/chains/FC-20-medical-domain.md",
+      "sha256": "0558960f66b11cd67604a8efaa3a95fd2cba7aa0d94f7658b4b47cfd9476d8b7"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-21-creative-assets.md",
+      "destination": "functional-chains/chains/FC-21-creative-assets.md",
+      "sha256": "0de408d6c46a61bcc8b60e8723216c8656526042ac36ec0d45cb4408cf791c09"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-22-public-presence.md",
+      "destination": "functional-chains/chains/FC-22-public-presence.md",
+      "sha256": "2d869e2d71eae5fd2905a71f304bdecd58ce66fdb796e6ee5f37dd78bb8028b8"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-23-external-interop.md",
+      "destination": "functional-chains/chains/FC-23-external-interop.md",
+      "sha256": "97ee708406429e320fce925fa21c61b966cb2c45e0a3d9dde76f0fd9705a57ed"
+    },
+    {
+      "source": "docs/target/functional-chains/chains/FC-24-operations-and-recovery.md",
+      "destination": "functional-chains/chains/FC-24-operations-and-recovery.md",
+      "sha256": "f1f1532c03f4aad75d3ab5ac8034569f0e7b5fba17491600f51f8256681fa31c"
+    },
+    {
+      "source": "docs/target/journeys.md",
+      "destination": "journeys.md",
+      "sha256": "f89ed1d12485994edce5427d604bad86da26b8f3fa8eedac97edfb6c727246cf"
+    },
+    {
+      "source": "docs/target/portfolio.v1.json",
+      "destination": "portfolio.v1.json",
+      "sha256": "2e18a4a39ee9c34a56b1803a6e628cecefadee64bbd490f949407a9dbe2ea383"
+    },
+    {
+      "source": "docs/target/public-architecture.v1.json",
+      "destination": "public-architecture.v1.json",
+      "sha256": "6655af483a5b6a5208bb234acd5c3704f89766baa827cfd97e6e0d1d03e6e767"
+    }
+  ]
+}

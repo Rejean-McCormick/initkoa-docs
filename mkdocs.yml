@@ -1,10 +1,19 @@
-﻿site_name: kOA Ecosystem Documentation
+site_name: kOA Ecosystem Documentation
 site_url: https://docs.initkoa.org
 docs_dir: docs
+nav:
+  - "Home": "index.md"
+  - "Final system (target design)":
+      - "Architecture and responsibilities": "final-system/index.md"
+      - "24 functional chains": "final-system/functional-chains/index.md"
+      - "53 repository roles": "final-system/PORTFOLIO.md"
+      - "26 target boundaries": "final-system/BOUNDARIES.md"
+      - "Qualification and acceptance": "final-system/functional-chains/06-qualification-and-acceptance.md"
+      - "Code alignment": "final-system/CODE_ALIGNMENT_INSTRUCTIONS.md"
+
 
 theme:
   name: material
-  logo: assets/images/LogoK.svg
   palette:
     scheme: slate
     primary: custom

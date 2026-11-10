@@ -1,0 +1,51 @@
+> **Final-system design mirror** · Canonical source: [`docs/target/functional-chains/chains/FC-12-language-runtime.md`](https://github.com/Rejean-McCormick/kOA-Digital-Ecosystem/blob/main/docs/target/functional-chains/chains/FC-12-language-runtime.md) · SHA-256 `359a92cd95496cad1b8bd3a7e90a2a4dd83be9e73da6b38416f9e9be3acc5d2b`. Design intent is not deployment proof.
+
+# FC-12 — Faithful multilingual realization and grammar runtime
+
+**Classification:** `TARGET_DESIGN` — final-system requirement, **not proof of integration or deployment**.
+
+**Inherits:** [System model](../00-system-model.md), [authority](../01-authority-and-ownership.md), [contracts and receipts](../02-contract-and-receipts.md), [failure rules](../03-state-trust-and-failure.md).
+
+## Functional promise
+
+**Owner(s):** SemantiK-Architect / SemantiK_Runtime_Orchestrator / diK.
+
+**Initiator:** An approved typed semantic input requires a specific supported language output.
+
+**Expected result:** Faithful language realization with RuntimeSet/locale trace or an explicit missing-language verdict.
+
+## Nominal end-to-end behavior
+
+| Step | Stage | Required outcome |
+|---|---|---|
+| 1 | Validate input | Scoped owner state and evidence receipt; no hidden mutation of other systems |
+| 2 | bind lexicon | Scoped owner state and evidence receipt; no hidden mutation of other systems |
+| 3 | choose GF RuntimeSet | Scoped owner state and evidence receipt; no hidden mutation of other systems |
+| 4 | independent qualify | Scoped owner state and evidence receipt; no hidden mutation of other systems |
+| 5 | render or fail. | Scoped owner state and evidence receipt; no hidden mutation of other systems |
+
+## Interfaces and authority gates
+
+**Target boundary references:** B-LANG-01. These identify candidate or scoped adopted contracts; they do not certify complete multi-owner deployment. Producer disclosure and receiving-owner admission are separate decisions.
+
+Where no exact interface is adopted, keep `TBD` rather than inventing a protocol ID. All privileged effects must be checked at the actual enforcing owner.
+
+## Failure, privacy and forbidden shortcuts
+
+Missing locale, unsafe grammar profile or fabricated translation must not be silently promoted.
+
+Owner-specific tenant/actor identity, source classification, integrity checks, replay and correction must be preserved. No debug dashboard or public documentation site may disclose private content.
+
+## Definition of done — acceptance and negative tests
+
+Positive/negative language fixtures, RuntimeSet rollback and unsupported-locale errors.
+
+To qualify the full chain, pin both producer and consumer revisions and execute negative fixtures, recovery and idempotency scenarios. An owner code snapshot alone does not demonstrate running behavior.
+
+## Required code and contract alignment
+
+Specify exact SemantiK→Runtime Orchestrator grammar manifest and independent verifier scope.
+
+## Source anchors and verification boundary
+
+See the [53-repository portfolio](../../PORTFOLIO.md) and [snapshot reconciliation](../../SNAPSHOT_RECONCILIATION.md) for source member names, hashes, declared local roots and evidence limitations. Contract boundaries are catalogued in [the C0 target ledger](../../BOUNDARIES.md). This is intended final behavior, not evidence of a currently operational multi-repository integration.
