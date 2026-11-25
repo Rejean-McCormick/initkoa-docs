@@ -9,12 +9,12 @@
 
 ## Ordre de lecture conseillé à un agent
 
-1. [`docs/index.md`](../../docs/index.md) — Page d’entrée et limites.
-2. [`mkdocs.yml`](../../mkdocs.yml) — Navigation et thème.
-3. [`scripts/sync_koa_target.py`](../../scripts/sync_koa_target.py) — Miroir C0 local attribué.
-4. [`scripts/sync_wikis.py`](../../scripts/sync_wikis.py) — Synchronisation des wikis.
-5. [`docs/final-system/_MANIFEST.json`](../../docs/final-system/_MANIFEST.json) — Provenance des pages dérivées.
-6. [`tests/test_final_system_sync.py`](../../tests/test_final_system_sync.py) — Tests du miroir.
+1. [`docs/index.md`](../index.md) — Page d’entrée et limites.
+2. [`mkdocs.yml`](https://github.com/Rejean-McCormick/initkoa-docs/blob/main/mkdocs.yml) — Navigation et thème.
+3. [`scripts/sync_koa_target.py`](https://github.com/Rejean-McCormick/initkoa-docs/blob/main/scripts/sync_koa_target.py) — Miroir C0 local attribué.
+4. [`scripts/sync_wikis.py`](https://github.com/Rejean-McCormick/initkoa-docs/blob/main/scripts/sync_wikis.py) — Synchronisation des wikis.
+5. [`docs/final-system/_MANIFEST.json`](../final-system/_MANIFEST.json) — Provenance des pages dérivées.
+6. [`tests/test_final_system_sync.py`](https://github.com/Rejean-McCormick/initkoa-docs/blob/main/tests/test_final_system_sync.py) — Tests du miroir.
 
 ## Documents produits par cet overlay
 

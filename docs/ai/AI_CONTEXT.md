@@ -34,9 +34,9 @@
 
 ## Sources à relire
 
-- [`docs/index.md`](../../docs/index.md) — Page d’entrée et limites.
-- [`mkdocs.yml`](../../mkdocs.yml) — Navigation et thème.
-- [`scripts/sync_koa_target.py`](../../scripts/sync_koa_target.py) — Miroir C0 local attribué.
-- [`scripts/sync_wikis.py`](../../scripts/sync_wikis.py) — Synchronisation des wikis.
-- [`docs/final-system/_MANIFEST.json`](../../docs/final-system/_MANIFEST.json) — Provenance des pages dérivées.
-- [`tests/test_final_system_sync.py`](../../tests/test_final_system_sync.py) — Tests du miroir.
+- [`docs/index.md`](../index.md) — Page d’entrée et limites.
+- [`mkdocs.yml`](https://github.com/Rejean-McCormick/initkoa-docs/blob/main/mkdocs.yml) — Navigation et thème.
+- [`scripts/sync_koa_target.py`](https://github.com/Rejean-McCormick/initkoa-docs/blob/main/scripts/sync_koa_target.py) — Miroir C0 local attribué.
+- [`scripts/sync_wikis.py`](https://github.com/Rejean-McCormick/initkoa-docs/blob/main/scripts/sync_wikis.py) — Synchronisation des wikis.
+- [`docs/final-system/_MANIFEST.json`](../final-system/_MANIFEST.json) — Provenance des pages dérivées.
+- [`tests/test_final_system_sync.py`](https://github.com/Rejean-McCormick/initkoa-docs/blob/main/tests/test_final_system_sync.py) — Tests du miroir.
